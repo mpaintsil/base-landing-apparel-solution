@@ -87,7 +87,7 @@
             overflow: hidden;
             background: white;
             border: 1px solid #ddd;
-          }
+        }
 
         .email-form input {
             flex: 1;
@@ -105,90 +105,41 @@
             font-size: 16px;
             color: white;
             border-radius: 0 30px 30px 0;
-        }
-
+        } 
 
         @media (min-width: 768px) {
             .container {
-                max-width: 800px;
-            }
-        }
-    
-  </style>
-</head>
-<body>
-
-  <div class="container">
-        <img class="logo" src="./images/logo.svg" alt="Base Apparel">
-
-    <picture class="hero">
-      <source srcset="./images/hero-desktop.jpg" media="(min-width: 90em)">
-      <img src="./images/hero-mobile.jpg" alt="Fasionable woman in base apparel clothing">
-    </picture>
-        </div>
+@@ -129,30 +102,31 @@
         <div class="content">
             <h1>WE'RE</h1>
             <h2>COMING SOON</h2>
+            <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
             <p>Hello fellow shoppers! We're currently building our new fashion store.</p> 
             <p>Add your email below to stay up-to-date with announcements and our launch deals.</p>
-           <form id="email-form">
-        <label for="email-input" class="sr-only">Email Address</label>
-        <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
-          aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-          required>
-        <p id="email-error" class="error text-red-400 fs-300" aria-live="polite"></p>
-        <div class="control flex">
-          <img class="hidden" src="./images/icon-error.svg" alt="" aria-hidden="true">
-          <button type="submit" class="button" data-variant="primary">
-            <img src="./images/icon-arrow.svg" alt="Submit">
-          </button>
-        </div>
-      </form> 
+            <form class="email-form">
+                <input type="email" placeholder="Email Address" required>
+              
+                <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
+                aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required>
+            <p id="email-error" class="error text-red-400 fs-300" aria-live="polite"></p>
+            <div class="control flex">
+                <img class="hidden" src="./images/icon-error.svg" alt="" aria-hidden="true">
+                <button type="submit">&rarr;
+                  <img src="./images/icon-arrow.svg" alt="Submit">
+                </button>
+
+            </form>
         </div>
     </div>
 
     <script>
-    const emailForm = document.querySelector("#sign-up-form");
+    const signUpForm = document.querySelector("#sign-up-form");
     const emailInput = document.querySelector("#email-input");
     const emailError = document.querySelector("#email-error");
 
-    emailForm.noValidate = true;
+    signUpForm.noValidate = true;
 
     emailInput.addEventListener("input", (event) => {
       if (!emailInput.validity.valueMissing && !emailInput.validity.patternMismatch) {
         emailInput.setAttribute("aria-invalid", false);
-        emailError.textContent = "";
-      }
-    });
-
-    emailForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      if (emailInput.validity.valueMissing || emailInput.validity.patternMismatch) {
-        emailInput.setAttribute("aria-invalid", true);
-        emailError.textContent = "Please provide a valid email";
-        emailInput.focus();
-        return;
-      };
-
-      try {
-        alert("Thank you for subscribing!");
-
-        emailInput.setAttribute("aria-invalid", false);
-        emailError.textContent = "";
-      } catch (e) {
-        alert("Oops! Something went wrong. Please try again later.");
-      }
-    });
-  </script>
-
-  
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">MaryAnn</a>.
-    </p>
-  </footer>
-</body>
-</html>
