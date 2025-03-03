@@ -131,10 +131,54 @@
             <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
             <form class="email-form">
                 <input type="email" placeholder="Email Address" required>
-                <button type="submit">&rarr;</button>
+                <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
+                aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required>
+            <p id="email-error" class="error text-red-400 fs-300" aria-live="polite"></p>
+            <div class="control flex">
+                <img class="hidden" src="./images/icon-error.svg" alt="" aria-hidden="true">
+                <button type="submit">&rarr;
+                  <img src="./images/icon-arrow.svg" alt="Submit">
+                </button>
+            
             </form>
         </div>
     </div>
+
+    <script>
+    const signUpForm = document.querySelector("#sign-up-form");
+    const emailInput = document.querySelector("#email-input");
+    const emailError = document.querySelector("#email-error");
+
+    signUpForm.noValidate = true;
+
+    emailInput.addEventListener("input", (event) => {
+      if (!emailInput.validity.valueMissing && !emailInput.validity.patternMismatch) {
+        emailInput.setAttribute("aria-invalid", false);
+        emailError.textContent = "";
+      }
+    });
+
+    signUpForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (emailInput.validity.valueMissing || emailInput.validity.patternMismatch) {
+        emailInput.setAttribute("aria-invalid", true);
+        emailError.textContent = "Please provide a valid email";
+        emailInput.focus();
+        return;
+      };
+
+      try {
+        alert("Thank you for subscribing!");
+
+        emailInput.setAttribute("aria-invalid", false);
+        emailError.textContent = "";
+      } catch (e) {
+        alert("Oops! Something went wrong. Please try again later.");
+      }
+    });
+  </script>
 
   
   
