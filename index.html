@@ -129,9 +129,14 @@
 
       <form id="email-form">
         <label for="email-input" class="sr-only">Email Address</label>
-        <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
+
+        <input type="email" data-variant="primary" type="email" placeholder="Email Address"
           aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
           required>
+                <button type="submit">&rarr;</button>
+        <!--<input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
+          aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          required> -->
        <!-- <p id="email-error" class="error text-red-400 fs-300" aria-live="polite"></p> -->
         <div class="control flex">
          <!-- <img class="hidden" src="./images/icon-error.svg" alt="" aria-hidden="true"> -->
