@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="MaryAnn">
-  
+
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Base Apparel Coming Soon Page</title>
 
-  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-
     * {
             box-sizing: border-box;
             margin: 0;
@@ -105,21 +101,33 @@
             font-size: 16px;
             color: white;
             border-radius: 0 30px 30px 0;
-        } 
+        }
 
         @media (min-width: 768px) {
             .container {
-   </style>
+                max-width: 800px;
+            }
+        }
+  
+  </style>
 </head>
 
-  <body>
-        <div class="content">
+<body>
+  <main class="landing grid">
+    <img class="logo" src="./images/logo.svg" alt="Base Apparel">
+
+    <picture class="hero">
+      <source srcset="./images/hero-desktop.jpg" media="(min-width: 90em)">
+      <img src="./images/hero-mobile.jpg" alt="Fasionable woman in base apparel clothing">
+    </picture>
+
+         <div class="content">
             <h1>WE'RE</h1>
             <h2>COMING SOON</h2>
-            
             <p>Hello fellow shoppers! We're currently building our new fashion store.</p> 
             <p>Add your email below to stay up-to-date with announcements and our launch deals.</p>
-            <form id="sign-up-form">
+
+      <form id="sign-up-form">
         <label for="email-input" class="sr-only">Email Address</label>
         <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
           aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
@@ -132,19 +140,43 @@
           </button>
         </div>
       </form>
-        </div>
     </div>
+  </main>
 
-    <script>
-    const signUpForm = document.querySelector("#sign-up-form");
+  <script>
+    const emailForm = document.querySelector("#sign-up-form");
     const emailInput = document.querySelector("#email-input");
     const emailError = document.querySelector("#email-error");
 
-    signUpForm.noValidate = true;
+    emailForm.noValidate = true;
 
     emailInput.addEventListener("input", (event) => {
       if (!emailInput.validity.valueMissing && !emailInput.validity.patternMismatch) {
         emailInput.setAttribute("aria-invalid", false);
+        emailError.textContent = "";
+      }
+    });
 
-      </body>
+    emailForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (emailInput.validity.valueMissing || emailInput.validity.patternMismatch) {
+        emailInput.setAttribute("aria-invalid", true);
+        emailError.textContent = "Please provide a valid email";
+        emailInput.focus();
+        return;
+      };
+
+      try {
+        alert("Thank you for subscribing!");
+
+        emailInput.setAttribute("aria-invalid", false);
+        emailError.textContent = "";
+      } catch (e) {
+        alert("Oops! Something went wrong. Please try again later.");
+      }
+    });
+  </script>
+</body>
+
 </html>
