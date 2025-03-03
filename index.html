@@ -87,12 +87,7 @@
             overflow: hidden;
             background: white;
             border: 1px solid #ddd;
-          <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
-          aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-          required>
-        <p id="email-error" class="error text-red-400 fs-300" aria-live="polite"></p>
-
-        }
+          }
 
         .email-form input {
             flex: 1;
@@ -100,6 +95,10 @@
             border: none;
             outline: none;
             font-size: 14px;
+            <input id="email-input" class="input" data-variant="primary" type="email" placeholder="Email Address"
+          aria-describedby="email-error" maxlength="255" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          required>
+        <p id="email-error" class="error text-red-400 fs-300" aria-live="polite"></p>
         }
 
         .email-form button {
