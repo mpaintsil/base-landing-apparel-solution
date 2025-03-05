@@ -46,6 +46,6 @@ Additionally, the form cannot be submitted if the field is empty.
 
 - [@Milleus](https://www.frontendmentor.io/solutions/base-apparel-coming-soon-page-ei8oz2Guyb)
 - [Challenge Starter Files](https://www.frontendmentor.io/challenges/base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0?tab=downloads)
-- [How To - Coming Soon Page](https://www.w3schools.com/howto/howto_css_coming_soon.asp?utm_source=chatgpt.com)
+- [How To - Coming Soon Page](https://www.w3schools.com/howto/howto_css_coming_soon.asp?)
 - [Responsive Coming Soon Page](https://codingnepal.medium.com/responsive-coming-soon-page-design-using-html-css-javascript-a79953705f84)
 - [Image Color Picker](https://imagecolorpicker.com/)
